@@ -9,7 +9,19 @@
         <script type="text/javascript"></script>
         <script type="text/javascript">
             AdfLogger.DEFAULT_LEVEL = AdfLogger.OFF;
-           
+            var checkAgentSupport = false;
+            AdfAgent.setInstance(AdfAgent.getAgent(window));
+            var lookAndFeel = new AdfDhtmlLookAndFeel(window);
+            AdfAgent._LOG_WRITERS = "NativeLogWriter";
+            AdfPage.setInstance(lookAndFeel.createPage());
+            var page = AdfPage.PAGE;
+            page.setBaseResourceUrl("/commercial");
+            page.__setAutomationEnabled(false);
+            page.__setCssSelectorsUncompressed(false);
+            page.setAnimationEnabled(true);
+            
+            page.__setOutputMode('default');
+            page.__disableDirtyDataRetainPPR()
         </script>
         <script type="text/javascript" src="/commercial/afr/partition/webkit/n/default/opt/d/core-xty4fu.js"></script>
         <script type="text/javascript" src="/commercial/afr/AdfTranslations-faz1oq_ar.js?loc=ar&amp;skinId=commercial.desktop"></script>
@@ -690,7 +702,7 @@
                                                                                 <!-- EDIT DATA -->
                                                                                 
                                                                                 <td valign="top" class="xvo">
-                                                                                    <span id="r1:0:it7::content" style="width:2000em;" 
+                                                                                    <span id="r1:0:it7::content" 
                                                                                     
                                                                                     class="x25">هيمحلاتالحلاقةالرجاليةالمجهزةلحلقأوقصأ
                                                                                     وتهذيبأوصبغالشعرويشملالحلاقةللاطفا
